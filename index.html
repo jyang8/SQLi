@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>SQL Injection</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<span class="logo"><img src="images/logo.svg" alt="" /></span>
+						<h1><a href="index.html">SQL Injection</a></h1>
+						<p>by Bobby Tables</p>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active">Introduction</a></li>
+							<li><a href="#first">Vulnerable Pages</a></li>
+							<li><a href="#second">Statistics</a></li>
+							<li><a href="#third">Types of SQL Injection</a></li>
+							<li><a href="#cta">Preventative Measures</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Introduction -->
+							<section id="intro" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>What is SQL Injection?</h2>
+										</header>
+										<p>SQL Injection (SQLi) refers to an injection attack wherein an attacker can execute malicious SQL statements (also commonly referred to as a malicious payload) that control a web application’s database server (also commonly referred to as a Relational Database Management System – RDBMS). </p>
+										<p>Since an SQL Injection vulnerability could possibly affect any website or web application that makes use of an SQL-based database, the vulnerability is one of the oldest, most prevalent and most dangerous of web application vulnerabilities.</p>
+									</div>
+									<span class="image"><img src="images/sqli.jpg" alt="" /></span>
+								</div>
+							</section>
+
+						<!-- First Section -->
+							<section id="first" class="main special">
+								<header class="major">
+									<h2>Vulnerable Pages</h2>
+								</header>
+								<ul class="features">
+									<li>
+										<span class="icon major style1 fa-code"></span>
+										<h3>Pages that allow the user to input data</h3>
+										<p>i.e. <br /><br /> login page, search page, feedback form</p>
+									</li>
+									<li>
+										<span class="icon major style3 fa-copy"></span>
+										<h3>Pages with URLs that take parameters</h3>
+										<p>i.e. <br /><br /> ASP, JSP, CGI, PHP</p>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Second Section -->
+							<section id="second" class="main special">
+								<header class="major">
+									<h2>Statistics</h2>
+									<p>Over 40% of government security breaches are caused by SQL injection.</p>
+								</header>
+								<ul class="statistics">
+									<li class="style1">
+									  <span class="image"><img src="images/years.png" alt="" /></span>
+									  <br /><br />
+									  The number of security breaches occurring each year is on the rise. In 2016, there seems to be a drastic spike of incidents compared to the previous five years.
+									</li>
+									<li class="style2">
+										<span class="image"><img src="images/pie.png" alt="" /></span>
+									</li>
+								</ul>
+								<p class="content">
+								  <ul>
+								    <li style="list-style: none">January 2016: <a href="https://motherboard.vice.com/en_us/article/researcher-finds-several-serious-vulnerabilities-in-us-military-websites">U.S. Military Websites</a></li>
+								    <li style="list-style: none">June 2016: <a href="https://www.hackread.com/vbulletin-forums-hacked-accounts-sold-on-dark-web/">vBulletin</a></li>
+								    <li style="list-style: none">October 2016: <a href="https://threatpost.com/oracle-fixes-253-vulnerabilities-in-last-cpu-of-2016/121375/">Oracle's Critical Patch Update</a></li>
+								    <li style="list-style: none">December 2016: <a href="https://threatpost.com/sql-injection-attack-is-tied-to-election-commission-breach/122571/">Election Assistance Commission</a></li>
+								    <li style="list-style: none">February 2017: <a href="http://news.softpedia.com/news/critical-sql-injection-vulnerability-found-in-nextgen-gallery-wordpress-plugin-513375.shtml">WordPress Plugins</a></li>
+								  </ul>
+								</p>
+							</section>
+
+							<!-- Third Section -->
+							<section id="third" class="main special">
+								<header class="major">
+									<h2>Types of SQL Injection</h2>
+								</header>
+								<ul class="features">
+									<li>
+										<span class="icon major style1 fa-code"></span>
+										<h3>Union-Based</h3>
+									</li>
+									<li>
+										<span class="icon major style3 fa-copy"></span>
+										<h3>Error-Based</h3>
+									</li>
+									<li>
+										<span class="icon major style5 fa-diamond"></span>
+										<h3>Boolean-Based</h3>
+									</li>
+									<li>
+										<span class="icon major style7 fa-code-fork"></span>
+										<h3>Time-Based</h3>
+									</li>
+									<li>
+										<span class="icon major style2 fa-laptop"></span>
+										<h3>Out-of-Band</h3>
+									</li>
+								</ul>
+								<footer class="major">
+									<ul class="actions">
+										<li><a href="sqli.html" class="button">Learn More</a></li>
+									</ul>
+								</footer>
+							</section>
+
+						<!-- Get Started -->
+							<section id="cta" class="main special">
+								<header class="major">
+								  <h2>Preventative Measures</h2>
+								  <ul class="features">
+								    <li>
+								      <span class="icon major style7 fa-folder-open-o"></span>
+								      <h3>Sanitizing/Filtering User Input</h3>
+								    </li>
+								    <li>
+								      <span class="icon major style5 fa-code"></span>
+								      <h3>Prepared Statements/Parameterized Queries</h3>
+								    </li>
+								    <li>
+								      <span class="icon major style3 fa-cogs"></span>
+								      <h3>White List Input Validation</h3>
+								    </li>
+								    <li>
+								      <span class="icon major style1 fa-hourglass-2"></span>
+								      <h3>Escaping User Input</h3>
+								    </li>
+								  </ul>
+								  <footer class="major">
+									<ul class="actions">
+										<li><a href="prevent.html" class="button">Learn More</a></li>
+									</ul>
+								</footer>
+								</header>
+							</section>
+
+							
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<h2>About</h2>
+							<p>This is a website about SQL injection, created by Team Bobby Tables for the Software Development class. The team consists of one member: Jessica Yang. The team name was inspired by an XKCD comic, also named Bobby Tables, which served as a cautionary tale for sanitizing database input.</p>
+						</section>
+						<section>
+							<h2>Resources</h2>
+							<dl class="alt">
+								<dt>acunetix</dt>
+								<dd><a href="https://www.acunetix.com/websitesecurity/sql-injection2/">Link</a></dd>
+								<dt>OWASP</dt>
+								<dd><a href="https://www.owasp.org/index.php/SQL_Injection">Link</a></dd>
+								<dt>Bobby Tables</dt>
+								<dd><a href="http://bobby-tables.com/">Link</a></dd>
+								<dt>Checkmarx</dt>
+								<dd><a href="https://www.checkmarx.com/knowledge/knowledgebase/SQLi">Link</a></dd>
+							</dl>
+						</section>
+						<p class="copyright">&copy; N/A. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

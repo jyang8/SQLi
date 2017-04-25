@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Types of SQL Injection</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Types of SQL Injection</a></h1>
+						<p>In-band vs. Out-of-band</p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/bbt.png" alt="" /></span>
+								<h2>Types of SQL Injection</h2>
+								<p>SQL Injection can be used in a range of ways to cause serious problems. By levering SQL Injection, an attacker could bypass authentication, access, modify and delete data within a database. In some cases, SQL Injection can even be used to execute commands on the operating system, potentially allowing an attacker to escalate to more damaging attacks inside of a network that sits behind a firewall.</p>
+								<p>SQL Injection can be classified into three major categories – In-band SQLi, Inferential SQLi and Out-of-band SQLi.</p>
+								<h2>In-band SQLi (Classic SQLi)</h2>
+								<p>In-band SQL Injection is the most common and easy-to-exploit of SQL Injection attacks. In-band SQL Injection occurs when an attacker is able to use the same communication channel to both launch the attack and gather results.</p>
+								<p>The two most common types of in-band SQL Injection are Error-based SQLi and Union-based SQLi.</p>
+								<h3>Union-based SQLi</h3>
+								<p><span class="image right"><img src="images/union.png" alt="" /></span>Union-based SQLi is an in-band SQL injection technique that leverages the UNION SQL operator to combine the results of two or more SELECT statements into a single result which is then returned as part of the HTTP response.</p>
+								<h3>Error-based SQLi</h3>
+								<p><span class="image right"><img src="images/error.png" alt="" /></span>Error-based SQLi is an in-band SQL Injection technique that relies on error messages thrown by the database server to obtain information about the structure of the database. In some cases, error-based SQL injection alone is enough for an attacker to enumerate an entire database. While errors are very useful during the development phase of a web application, they should be disabled on a live site, or logged to a file with restricted access instead.</p>
+								<h2>Inferential SQLi (Blind SQLi)</h2>
+								<p>Inferential SQL Injection, unlike in-band SQLi, may take longer for an attacker to exploit, however, it is just as dangerous as any other form of SQL Injection. In an inferential SQLi attack, no data is actually transferred via the web application and the attacker would not be able to see the result of an attack in-band (which is why such attacks are commonly referred to as “blind SQL Injection attacks”). Instead, an attacker is able to reconstruct the database structure by sending payloads, observing the web application’s response and the resulting behavior of the database server.</p>
+								<p>The two types of inferential SQL Injection are Blind-boolean-based SQLi and Blind-time-based SQLi.</p>
+								<h3>Boolean-based SQLi</h3>
+								<p><span class="image right"><img src="images/bool.png" alt="" /></span>Boolean-based SQL Injection is an inferential SQL Injection technique that relies on sending an SQL query to the database which forces the application to return a different result depending on whether the query returns a TRUE or FALSE result.</p>
+								<p>Depending on the result, the content within the HTTP response will change, or remain the same. This allows an attacker to infer if the payload used returned true or false, even though no data from the database is returned. This attack is typically slow (especially on large databases) since an attacker would need to enumerate a database, character by character.</p>
+								<h3>Time-based SQLi</h3>
+								<p>Time-based SQL Injection is an inferential SQL Injection technique that relies on sending an SQL query to the database which forces the database to wait for a specified amount of time (in seconds) before responding. The response time will indicate to the attacker whether the result of the query is TRUE or FALSE.</p>
+								<p>Depending on the result, an HTTP response will be returned with a delay, or returned immediately. This allows an attacker to infer if the payload used returned true or false, even though no data from the database is returned. This attack is typically slow (especially on large databases) since an attacker would need to enumerate a database character by character.
+								  <br><br>
+								  For example: 
+								  <ul>
+								    <li>If the first letter of the first database's name is an 'A', wait for 10 seconds.</li>
+								    <li>If the first letter of the first database's name is an 'B', wait for 10 seconds. etc.</li>
+								  </ul>
+								</p>
+								<h2>Out-of-band SQLi</h2>
+								<p>Out-of-band SQL Injection is not very common, mostly because it depends on features being enabled on the database server being used by the web application. Out-of-band SQL Injection occurs when an attacker is unable to use the same channel to launch the attack and gather results.</p>
+								<p>Out-of-band techniques, offer an attacker an alternative to inferential time-based techniques, especially if the server responses are not very stable (making an inferential time-based attack unreliable).</p>
+								<p>Out-of-band SQLi techniques would rely on the database server’s ability to make DNS or HTTP requests to deliver data to an attacker. Such is the case with Microsoft SQL Server’s xp_dirtree command, which can be used to make DNS requests to a server an attacker controls; as well as Oracle Database’s UTL_HTTP package, which can be used to send HTTP requests from SQL and PL/SQL to a server an attacker controls.</p>
+							</section>
+
+					</div>
+
+			<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<h2>About</h2>
+							<p>This is a website about SQL injection, created by Team Bobby Tables for the Software Development class. The team consists of one member: Jessica Yang. The team name was inspired by an XKCD comic, also named Bobby Tables, which served as a cautionary tale for sanitizing database input.</p>
+						</section>
+						<section>
+							<h2>Resources</h2>
+							<dl class="alt">
+								<dt>acunetix</dt>
+								<dd><a href="https://www.acunetix.com/websitesecurity/sql-injection2/">Link</a></dd>
+								<dt>OWASP</dt>
+								<dd><a href="https://www.owasp.org/index.php/SQL_Injection">Link</a></dd>
+								<dt>Bobby Tables</dt>
+								<dd><a href="http://bobby-tables.com/">Link</a></dd>
+								<dt>Checkmarx</dt>
+								<dd><a href="https://www.checkmarx.com/knowledge/knowledgebase/SQLi">Link</a></dd>
+							</dl>
+						</section>
+						<p class="copyright">&copy; N/A. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

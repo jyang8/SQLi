@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Safeguards Against SQL Injection</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Safeguards Against SQL Injection</a></h1>
+						<p>What you can do to prevent SQLi</p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/bbt.png" alt="" /></span>
+								<h2>Sanitizing/Filtering User Input</h2>
+								<p>You can try sanitizing inputs, or checking user input before storing it in a database or using it for any other purpose to prevent malicious code injection. You might filter problematic characters such as:</p>
+								<ul>
+								  <li>Single/Double Quotes</li>
+								  <li>Slash/Backslash</li>
+								  <li>Semicolon</li>
+								  <li>NULL</li>
+								  <li>Carriage Return/New Line</li>
+								</ul>
+								  <p>However, this method is prone to error, so this may not be the best method of preventing SQL injection.</p>
+								   
+								<h2>Prepared Statements/Parameterized Queries</h2>
+								<p>
+								  The use of prepared statements with variable binding (aka parameterized queries) is how all developers should first be taught how to write database queries. They are simple to write, and easier to understand than dynamic queries. Parameterized queries force the developer to first define all the SQL code, and then pass in each parameter to the query later. This coding style allows the database to distinguish between code and data, regardless of what user input is supplied.
+								</p>
+								<p>Prepared statements ensure that an attacker is not able to change the intent of a query, even if SQL commands are inserted by an attacker.
+								  <br /><br />
+								  Embedded user input: <br />
+								  <span class="image"><img src="images/ps1.png" alt="" /></span><br />
+								  <br />
+								  Parameterized queries: <br />
+								  <span class="image"><img src="images/ps2.png" alt="" /></span>
+								</p>
+
+								<h2>White List Input Validation</h2>
+								<p>Various parts of SQL queries aren't legal locations for the use of bind variables, such as the names of tables or columns, and the sort order indicator (ASC or DESC). In such situations, input validation or query redesign is the most appropriate defense. For the names of tables or columns, ideally those values come from the code, and not from user parameters. But if user parameter values are used to make different for table names and column names, then the parameter values should be mapped to the legal/expected table or column names to make sure unvalidated user input doesn't end up in the query.</p>
+								<p>
+								  <span class="image right"><img src="images/wl.png" alt="" /></span>
+								  Validation should be based on a whitelist: accept only data fitting a specified structure, rather than reject bad patterns. Check for the following:
+								  <ul>
+								    <li>Data Type</li>
+								    <li>Size</li>
+								    <li>Range</li>
+								    <li>Format</li>
+								    <li>Expected values</li>
+								  </ul>
+								</p>
+								
+								<h2>Escaping User Input</h2>
+								<p><span class="image right"><img src="images/eo.png" alt="" /></span>This technique is to escape user input before putting it in a query. It is very database specific in its implementation. Its usually only recommended to retrofit legacy code when implementing input validation isn't cost effective. Applications built from scratch, or applications requiring low risk tolerance should be built or re-written using parameterized queries, stored procedures, or some kind of Object Relational Mapper (ORM) that builds your queries for you.</p>
+								<p>
+								  Each DataBase Management System (DBMS) supports one or more character escaping schemes specific to certain kinds of queries. If you then escape all user supplied input using the proper escaping scheme for the database you are using, the DBMS will not confuse that input with SQL code written by the developer, thus avoiding any possible SQL injection vulnerabilities. <br /><br />
+								  Examples:
+								  <ul>
+								    <li>MySQL: mysqli_real_escape_string()</li>
+								    <li>SQLite: sqlite_escape_string()</li>
+								    <li>HTML: htmlspecialchara()</li>
+								    <li>PHP: filter_input()</li>
+								  </ul>
+								</p>
+							</section>
+
+					</div>
+
+			<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<h2>About</h2>
+							<p>This is a website about SQL injection, created by Team Bobby Tables for the Software Development class. The team consists of one member: Jessica Yang. The team name was inspired by an XKCD comic, also named Bobby Tables, which served as a cautionary tale for sanitizing database input.</p>
+						</section>
+						<section>
+							<h2>Resources</h2>
+							<dl class="alt">
+								<dt>acunetix</dt>
+								<dd><a href="https://www.acunetix.com/websitesecurity/sql-injection2/">Link</a></dd>
+								<dt>OWASP</dt>
+								<dd><a href="https://www.owasp.org/index.php/SQL_Injection">Link</a></dd>
+								<dt>Bobby Tables</dt>
+								<dd><a href="http://bobby-tables.com/">Link</a></dd>
+								<dt>Checkmarx</dt>
+								<dd><a href="https://www.checkmarx.com/knowledge/knowledgebase/SQLi">Link</a></dd>
+							</dl>
+						</section>
+						<p class="copyright">&copy; N/A. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
